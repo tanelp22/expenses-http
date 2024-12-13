@@ -1,11 +1,7 @@
-import Expences from './components/Expences';
+import Expences from "./components/Expenses/Expences.js";
 
 function App() {
-     
-
-  return (
-    <Expences />
-  );
+  return <Expences />;
 }
 
 export default App;
