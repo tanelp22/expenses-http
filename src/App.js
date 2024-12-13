@@ -1,7 +1,13 @@
 import Expences from "./components/Expenses/Expences.js";
+import NewExpense from "./components/NewExpense/NewExpense.js";
 
 function App() {
-  return <Expences />;
+  return (
+    <div className="App">
+      <NewExpense />
+      <Expences />
+    </div>
+  );
 }
 
 export default App;
