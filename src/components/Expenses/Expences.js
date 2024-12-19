@@ -2,6 +2,7 @@ import "./Expences.css";
 import "../UI/Card.css";
 import ExpenceItem from "./ExpenceItem.js";
 import Card from "../UI/Card.js";
+import ExpensesFilter from "./ExpensesFilter.js";
 
 function Expences() {
   const expenses = [
@@ -11,6 +12,7 @@ function Expences() {
 
   return (
     <div className="expenses">
+      <ExpensesFilter />
       <Card>
         <ExpenceItem data={expenses[0]} />
         <ExpenceItem data={expenses[1]} />
