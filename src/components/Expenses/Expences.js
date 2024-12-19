@@ -4,6 +4,7 @@ import "../UI/Card.css";
 import ExpenceItem from "./ExpenceItem.js";
 import Card from "../UI/Card.js";
 import ExpensesFilter from "./ExpensesFilter.js";
+import ExpensesList from "./ExpensesList.js";
 
 const Expences = (props) => {
   const [selectedYear, setSelectedYear] = useState("All Years");
@@ -27,15 +28,7 @@ const Expences = (props) => {
     <div className="expenses">
       <ExpensesFilter onSaveSelectedYear={getData} />
       <Card>
-        {filteredExpenses.length === 0 ? (
-          <p style={{ color: "white", textAlign: "center" }}>
-            No expenses found for the selected year.
-          </p>
-        ) : (
-          filteredExpenses.map((expense) => (
-            <ExpenceItem data={expense} key={expense.id} />
-          ))
-        )}
+        <ExpensesList expenses={filteredExpenses}/>
       </Card>
     </div>
   );
