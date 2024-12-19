@@ -10,10 +10,12 @@ function Expences() {
   ];
 
   return (
-    <Card className="expenses">
-      <ExpenceItem data={expenses[0]} />
-      <ExpenceItem data={expenses[1]} />
-    </Card>
+    <div className="expenses">
+      <Card>
+        <ExpenceItem data={expenses[0]} />
+        <ExpenceItem data={expenses[1]} />
+      </Card>
+    </div>
   );
 }
 

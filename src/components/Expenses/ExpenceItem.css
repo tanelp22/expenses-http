@@ -6,6 +6,8 @@
     margin: 1rem 0;
     background-color: #4b4b4b;
     color: white;
+    border-radius: 12px;
+    
 }
 
 .expense-item__description {
