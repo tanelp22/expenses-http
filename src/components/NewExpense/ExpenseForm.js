@@ -31,6 +31,16 @@ const ExpenseForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+
+    if (
+      userInput.enteredTitle.trim() === "" ||
+      userInput.enteredAmount.trim() === "" ||
+      userInput.enteredDate.trim() === ""
+    ) {
+      alert("Please fill out all fields before submitting.");
+      return;
+    }
+
     const expenseData = {
       title: userInput.enteredTitle,
       amount: parseFloat(userInput.enteredAmount),
@@ -43,7 +53,6 @@ const ExpenseForm = (props) => {
       enteredAmount: "",
       enteredDate: "",
     });
-    setTimeout(() => props.onCancel(), 0);
   };
 
   const cancelHandler = () => {
@@ -69,6 +78,9 @@ const ExpenseForm = (props) => {
   //};
   return (
     <form onSubmit={submitHandler}>
+
+
+
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
