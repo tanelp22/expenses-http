@@ -16,10 +16,10 @@ const Expences = (props) => {
   const filterByYear = (expenses, year) => {
     if (year === "All Years") {
       return expenses;
-    }
-    return expenses.filter(
-      (expense) => expense.date.getFullYear().toString() === year
-    );
+    } else
+      return expenses.filter(
+        (expense) => expense.date.getFullYear().toString() === year
+      );
   };
   const filteredExpenses = filterByYear(props.expenses, selectedYear);
 
@@ -27,12 +27,19 @@ const Expences = (props) => {
     <div className="expenses">
       <ExpensesFilter onSaveSelectedYear={getData} />
       <Card>
-        {filteredExpenses.map((expense) => {
-          return <ExpenceItem data={expense} key={expense.id} />;
-        })}
+        {filteredExpenses.length === 0 ? (
+          <p style={{ color: "white", textAlign: "center" }}>
+            No expenses found for the selected year.
+          </p>
+        ) : (
+          filteredExpenses.map((expense) => (
+            <ExpenceItem data={expense} key={expense.id} />
+          ))
+        )}
       </Card>
     </div>
   );
 };
 
 export default Expences;
+//{}
