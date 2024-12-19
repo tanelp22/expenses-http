@@ -1,16 +1,13 @@
 import React from "react";
 import "./ExpenceItem.css";
 import ExpenceDate from "./ExpenceDate.js";
-import Card from "../UI/Card.js";
 import { useState } from "react";
 
 const ExpenceItem = (props) => {
   const [priceChange, setPriceChange] = useState(props.data.price);
 
   const clickHandler = () => {
-    //console.log("Clicked");
     setPriceChange(props.data.title);
-    //console.log(priceChange);
   };
 
   return (

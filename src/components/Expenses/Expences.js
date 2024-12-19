@@ -1,3 +1,4 @@
+import React from "react";
 import "./Expences.css";
 import "../UI/Card.css";
 import ExpenceItem from "./ExpenceItem.js";
@@ -9,10 +10,14 @@ function Expences() {
     { date: new Date(2024, 10, 22), title: "New Book", price: 39.99 },
     { date: new Date(2024, 11, 22), title: "Old Book", price: 9.99 },
   ];
+  const getData = (year) => {
+    console.log(year);
+  };
+
 
   return (
     <div className="expenses">
-      <ExpensesFilter />
+      <ExpensesFilter onSaveSelectedYear={getData} />
       <Card>
         <ExpenceItem data={expenses[0]} />
         <ExpenceItem data={expenses[1]} />
