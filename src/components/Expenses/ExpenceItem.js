@@ -4,7 +4,7 @@ import ExpenceDate from "./ExpenceDate.js";
 import { useState } from "react";
 
 const ExpenceItem = (props) => {
-  const [priceChange, setPriceChange] = useState(props.data.price);
+  const [priceChange, setPriceChange] = useState(props.data.amount);
 
   const clickHandler = () => {
     setPriceChange(props.data.title);
