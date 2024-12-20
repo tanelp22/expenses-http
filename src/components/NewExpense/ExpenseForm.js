@@ -1,7 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, Fragment, useState } from "react";
 import "./ExpenseForm.css";
+import Error from "../UI/Error";
 
 const ExpenseForm = (props) => {
+  const [error, setError] = useState(null);
+  console.log(error);
+
   const titleInputRef = useRef();
   const amountInputRef = useRef();
   const dateInputRef = useRef();
@@ -32,7 +36,6 @@ const ExpenseForm = (props) => {
     amountInputRef.current.value = "";
     dateInputRef.current.value = "";
   };
-  
   const cancelHandler = (event) => {
     event.preventDefault();
     props.onCancel();
