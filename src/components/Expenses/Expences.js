@@ -13,21 +13,18 @@ const Expences = (props) => {
     console.log("Selected Year:", year);
   };
 
-  const filterByYear = (expenses, year) => {
-    if (year === "All Years") {
-      return expenses;
-    } else
-      return expenses.filter(
-        (expense) => expense.date.getFullYear().toString() === year
-      );
-  };
-  const filteredExpenses = filterByYear(props.expenses, selectedYear);
+  const filteredExpenses = props.expenses.filter((expense) => {
+    const expenseDate = new Date(expense.date);
+    return selectedYear === "All Years"
+      ? true
+      : expenseDate.getFullYear().toString() === selectedYear;
+  });
 
   return (
     <div className="expenses">
       <ExpensesFilter onSaveSelectedYear={getData} />
       <Card>
-        <ExpensesList expenses={filteredExpenses}/>
+        <ExpensesList expenses={filteredExpenses} />
       </Card>
     </div>
   );
