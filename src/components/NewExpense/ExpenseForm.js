@@ -1,6 +1,7 @@
-import React, { useRef, Fragment, useState } from "react";
 import "./ExpenseForm.css";
-import Error from "../UI/Error";
+import React, { Fragment, useRef,  useState } from "react";
+
+import Error from "../UI/Error.js";
 
 const ExpenseForm = (props) => {
   const [error, setError] = useState(null);
@@ -15,10 +16,12 @@ const ExpenseForm = (props) => {
   };
 
   const submitHandler = (event) => {
-    event.preventDefault();
+    
     const enteredTitle = titleInputRef.current.value;
     const enteredAmount = amountInputRef.current.value;
     const enteredDate = dateInputRef.current.value;
+
+    event.preventDefault();
 
     const expenseData = {
       title: enteredTitle,
@@ -27,9 +30,9 @@ const ExpenseForm = (props) => {
     };
 
     if (
-      enteredTitle.trim() === "" ||
-      enteredAmount.trim() === "" ||
-      enteredDate.trim() === ""
+      enteredTitle.trim().length == 0 ||
+      enteredAmount.trim().length == 0 ||
+      enteredDate.trim().length == 0
     ) {
       setError({
         title: "Invalid input",

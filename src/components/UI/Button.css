@@ -8,3 +8,9 @@
   border-radius: 12px;
   margin-right: 1rem;
 }
+.button {
+  pointer-events: auto;
+}
+.button {
+  z-index: 10000;
+}
