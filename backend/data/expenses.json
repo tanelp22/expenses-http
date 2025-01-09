@@ -1,0 +1,20 @@
+[
+  {
+    "id": "id1",
+    "date": "2023-01-01T22:00:00.000",
+    "title": "Very Old Book",
+    "amount": 39.99
+  },
+  {
+    "id": "id2",
+    "date": "2024-01-01T22:00:00.000",
+    "title": "Old Book",
+    "amount": 29.99
+  },
+  {
+    "id": "id3",
+    "date": "2025-01-01T22:00:00.000",
+    "title": "New Book",
+    "amount": 19.99
+  }
+]
