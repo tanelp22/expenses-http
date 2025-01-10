@@ -13,16 +13,16 @@ const App = () => {
     const getExpenses = async () => {
       setIsFetching(true);
       try {
-        const response = await fetch("http://localhost:3005/expensses");
+        const response = await fetch("http://localhost:3005/expenses");
         const responseData = await response.json();
         if (!response.ok) {
-          throw new Error("Failed fetchin data");
+          throw new Error("Failed fetching data");
         }
         setExpenses(responseData.expenses);
       } catch (error) {
         setError({
           title: "An error occured!",
-          message: "Failed fetching expenses data, plaeasy try again later.",
+          message: "Failed fetching expenses data, pleasy try again later.",
         });
         setShowError(true);
       }
@@ -37,13 +37,32 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log(expenses); // Logs the updated state whenever `expenses` changes
+    console.log("app " + expenses);
   }, [expenses]);
 
   const addExpenseHandler = (expense) => {
-    setExpenses((previousExpenses) => {
-      return [expense, ...previousExpenses];
-    });
+    const addExpense = async (expense) => {
+      try {
+        const response = await fetch("http://localhost:3005/add-expense", {
+          method: "POST",
+          body: JSON.stringify(expense),
+          headers: { 'Content-Type': 'application/json' },
+        });
+        
+        const responseData = await response.json();
+        if (!response.ok) {
+          throw new Error("Failed saving data");
+        }
+        setExpenses((prevExpenses) => [expense, ...prevExpenses]);
+      } catch (error) {
+        setError({
+          title: "An error occured!",
+          message: "Failed saving exspenses data, please try again.",
+        });
+        setShowError(true);
+      }
+    };
+    addExpense(expense);
   };
 
   return (
