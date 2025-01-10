@@ -21,14 +21,9 @@ app.get("/expenses", async (req, res) => {
 });
 
 app.post("/add-expense", async (req, res) => {
-  console.log('incoming expense data: ', req.body)
   const expenseData = req.body;
   const NewExpense = {
     ...expenseData,
-    //id: (Math.random() * 1000).toString(),
-    //date: "2025-01-01T22:00:00.000",
-    //title: "Ancient book",
-    //amount: "100.01",
   };
   const fileContent = await fs.readFile("./data/expenses.json", "utf8");
   const expensesData = JSON.parse(fileContent);
