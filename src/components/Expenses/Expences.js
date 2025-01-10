@@ -10,7 +10,7 @@ const Expences = (props) => {
 
   const getData = (year) => {
     setSelectedYear(year);
-    console.log("Selected Year:", year);
+    console.log("Selected Year: " + year);
   };
 
   const filteredExpenses = props.expenses.filter((expense) => {
@@ -19,6 +19,7 @@ const Expences = (props) => {
       ? true
       : expenseDate.getFullYear().toString() === selectedYear;
   });
+  //console.log("from Expences " + filteredExpenses);
 
   return (
     <div className="expenses">
@@ -31,4 +32,4 @@ const Expences = (props) => {
 };
 
 export default Expences;
-//{}[] 
+//{}[]

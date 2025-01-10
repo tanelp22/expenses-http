@@ -5,14 +5,16 @@ import NewExpense from "./components/NewExpense/NewExpense.js";
 const App = () => {
   const [expenses, setExpenses] = useState([]);
 
-  fetch("http://localhost:3005/expenses")
-    .then((response) => {
-      return response.json();
-    })
-    .then((responseData) => {
-      setExpenses(responseData.expenses);
-    });
-  console.log(expenses);
+  useEffect(() => {
+    fetch("http://localhost:3005/expenses")
+      .then((response) => {
+        return response.json();
+      })
+      .then((responseData) => {
+        setExpenses(responseData.expenses);
+      });
+    console.log(expenses);
+  }, []);
 
   const addExpenseHandler = (expense) => {
     setExpenses((previousExpenses) => {

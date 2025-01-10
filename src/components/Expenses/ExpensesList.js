@@ -1,5 +1,6 @@
 import React from "react";
 import ExpenceItem from "./ExpenceItem";
+import './ExpensesList.css'
 
 const ExpensesList = (props) => {
   return (
