@@ -25,7 +25,7 @@ const Expences = (props) => {
     <div className="expenses">
       <ExpensesFilter onSaveSelectedYear={getData} />
       <Card>
-        <ExpensesList expenses={filteredExpenses} />
+        <ExpensesList expenses={filteredExpenses} isLoading={props.isLoading} />
       </Card>
     </div>
   );

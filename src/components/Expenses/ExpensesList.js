@@ -3,6 +3,9 @@ import ExpenceItem from "./ExpenceItem";
 import './ExpensesList.css'
 
 const ExpensesList = (props) => {
+  if(props.isLoading){
+    return <p className="expenses-list__fallback"><b>Fetching expenses data...</b></p>
+  }
   return (
     <>
       {props.expenses.length === 0 ? (
